@@ -21,10 +21,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (paperball.transform.position.y <= 0.2)
+            ResetBall();
     }
     // read keyboard input 'r' and then call the appropriate function 
-
     void OnGUI()
     {
         Event e = Event.current;
@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
         {
             if (e.keyCode == KeyCode.R)
             {
-                Debug.Log("E key pressed");
+                Debug.Log("E key pressed pipipi");
                 // call the function to reset the ball
                 ResetBall();
             }
