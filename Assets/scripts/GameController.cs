@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    GameObject paperball;
+    public GameObject paperball;
 
-    private Transform origin;
+    private Vector3 origin;
     // Start is called before the first frame update
     void Start()
     {
-        origin = paperball.transform;
+        if (paperball == null)
+        {
+            throw new System.Exception("Paperball is null");
+        }
+        origin = paperball.transform.position;
 
     }
 
@@ -19,4 +23,29 @@ public class GameController : MonoBehaviour
     {
         
     }
+    // read keyboard input 'r' and then call the appropriate function 
+
+    void OnGUI()
+    {
+        Event e = Event.current;
+        if (e.isKey && e.type == EventType.KeyDown)
+        {
+            if (e.keyCode == KeyCode.R)
+            {
+                Debug.Log("E key pressed");
+                // call the function to reset the ball
+                ResetBall();
+            }
+        }
+    }
+
+    // Reset the ball to the origin
+    public void ResetBall()
+    {
+        paperball.transform.position = origin;
+        paperball.transform.rotation = Quaternion.identity;
+        paperball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        paperball.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+    }
+
 }
