@@ -1,0 +1,2 @@
+Product ID,Published State,Purchase Type,Auto Translate,Locale; Title; Description,Auto Fill Prices,Price,Pricing Template ID
+golden_broccoli,published,managed_by_android,false,en_US;Golden Broccoli;The amazing golden broccoli. Throw it. It's gold.,true,1000000,
